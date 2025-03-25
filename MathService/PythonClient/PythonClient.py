@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import zeep
 
-WSDL_URL = 'http://localhost:8733/Design_Time_Addresses/MathService/Math/'
+WSDL_URL = 'http://localhost:8733/Design_Time_Addresses/MathService/Math/?wsdl'
 
 try:
-    client = zeep.Client(wsdl=WSDL_URL, service_name='MathService.Math', port_name='BasicHttpBinding_IMath')
-    number = int(input("Introduce un n�mero para verificar si es primo: "))
+    client = zeep.Client(WSDL_URL)
+    number = int(input("Introduce un número para verificar si es primo: "))
     result = client.service.Prime(number)
     if result:
         print(f"El número {number} es primo.")
