@@ -15,12 +15,13 @@ namespace MathClientConsole
                 MathClient client = new MathClient("BasicHttpBinding_IMath");
 
                 // Servicio para saber si un número es primo
-                int x = 23;
+                Console.Write("Introduce el número para saber si es primo o no: ");
+                int number = int.Parse(Console.ReadLine());
 
-                if (client.Prime(x))
-                    Console.WriteLine("{0} es primo", x);
+                if (client.Prime(number))
+                    Console.WriteLine("{0} es primo", number);
                 else
-                    Console.WriteLine("{0} no es primo", x);
+                    Console.WriteLine("{0} no es primo", number);
 
                 // Servicio para resolver sistemas de ecuaciones
                 Console.Write("Introduce el número de ecuaciones: ");
@@ -55,6 +56,7 @@ namespace MathClientConsole
                 {
                     Console.WriteLine($"x{i + 1} = {result[i]}");
                 }
+
             }
             catch (Exception ex)
             {
